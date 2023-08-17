@@ -31,25 +31,12 @@ from services_pr.views import BookingUnderServicesViewSet, SelectViewSet, Servic
 # r = routers.DefaultRouter()
 # r.register('hotels', HotelViewSet)
 
-#
-r = routers.DefaultRouter()
-r.register('users', UserViewSet)
-r.register('booking-services', BookingUnderServicesViewSet)
-r.register('bookings', BookingViewSet)
-r.register('category_restourant', CategoryViewSet)
-r.register('comments', CommentViewSet)
-r.register('hotels', HotelViewSet)
-r.register('likes', LikeCreateView)
-r.register('product', ProductViewSet)
-r.register('select_services', SelectViewSet)
-r.register('services', ServicesViewSet)
 
 
 urlpatterns = [
-    path('api/account/', include(r.urls)),
     path('__debug__/', include('debug_toolbar.urls')),
     path('admin/', admin.site.urls),
-    path('api/', include('account.urls')),
+    path('api/account/', include('account.urls')),
     path('docs/', SpectacularSwaggerView.as_view(url_name='schema'), name='swagger-ui'),
     path('redoc/', SpectacularRedocView.as_view(url_name='schema'), name='redoc'),
     path('schema/', SpectacularAPIView.as_view(), name='schema'),

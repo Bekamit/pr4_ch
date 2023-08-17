@@ -17,13 +17,15 @@ class Services(models.Model):
 
 class SelectCategory(models.Model):
     select_category = models.CharField(max_length=500)
+    description = models.CharField(max_length=250, null=True, blank=True)
+    img = models.ImageField(null=True, blank=True)
 
     def __str__(self):
         return self.select_category
 
 
 class Booking_s(models.Model):
-    service = models.CharField(max_length=350)
+    service = models.CharField(max_length=250, null=True, blank=True)
     check_in_date = models.DateTimeField()
     check_out_date = models.DateTimeField()
 

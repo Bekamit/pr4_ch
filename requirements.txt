@@ -54,3 +54,4 @@ wcwidth==0.2.6
 webencodings==0.5.1
 yarl==1.9.2
 drf-spectacular
+django-celery-beat

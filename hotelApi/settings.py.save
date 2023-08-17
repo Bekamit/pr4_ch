@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-3bxn6((4hsjz@ipok+s+pw2_0n0#vjg$dw1)n9=t&782)-m02@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '13.53.206.129', 'app.hackatonfullstack.pp.ua', 'www.app.hackatonfullstack.pp.ua']
+ALLOWED_HOSTS = ['0.0.0.0', 'localhost', '16.171.1.238']
 
 #'lxdlwbubuykzarrx'
 # Application definition
@@ -52,7 +52,7 @@ INSTALLED_APPS = [
     'restourant',
     'services_pr',
     'drf_spectacular',
-    'django_celery_beat',
+
 
 ]
 
@@ -69,7 +69,7 @@ MIDDLEWARE = [
     'django.middleware.common.CommonMiddleware',
     'django.middleware.cache.UpdateCacheMiddleware',
     'django.middleware.common.CommonMiddleware',
- #   'django.middleware.cache.FetchFromCacheMiddleware',
+    'django.middleware.cache.FetchFromCacheMiddleware',
 ]
 
 ROOT_URLCONF = 'hotelApi.urls'
@@ -177,7 +177,7 @@ REST_FRAMEWORK = {
     ],
     'DEFAULT_PAGINATION_CLASS':
         'rest_framework.pagination.LimitOffsetPagination',
-        'PAGE_SIZE': 12,
+        'PAGE_SIZE': 2,
     'DEFAULT_SCHEMA_CLASS': 'drf_spectacular.openapi.AutoSchema',
 }
 
@@ -202,27 +202,27 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-#CACHES = {
-#    'default': {
- #       'BACKEND': 'django_redis.cache.RedisCache',
-  #      'LOCATION': 'redis://127.0.0.1:6379/',
-   #     'OPTIONS': {
-    #        'CLIENT_CLASS': 'django_redis.client.DefaultClient'
-     #   },
-   # }
-#}
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': 'redis://127.0.0.1:6379/',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient'
+        },
+    }
+}
 
 REDIS_HOST = 'redis'
 REDIS_PORT = 6379
 
-#CACHES = {
-   # 'default': {
-      #  'BACKEND': 'django_redis.cache.RedisCache',
-     #   'LOCATION': f'redis://{REDIS_HOST}:{REDIS_PORT}/',
-    #    'OPTIONS': {
-   #         'CLIENT_CLASS': 'django_redis.client.DefaultClient'
-  #      },
- #   }
-#}
+CACHES = {
+    'default': {
+        'BACKEND': 'django_redis.cache.RedisCache',
+        'LOCATION': f'redis://{REDIS_HOST}:{REDIS_PORT}/',
+        'OPTIONS': {
+            'CLIENT_CLASS': 'django_redis.client.DefaultClient'
+        },
+    }
+}
 
-#CACHE_TTL = 60 * 15
+CACHE_TTL = 60 * 15
